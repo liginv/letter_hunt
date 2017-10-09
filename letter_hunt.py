@@ -19,6 +19,8 @@ def active_add_letters():
     return active_letters
 
 def letter_check(user_input):
+    global score
+    global fail
     active_add_letters()
    # score=0
     #fail=0
