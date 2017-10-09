@@ -17,3 +17,16 @@ def active_add_letters():
     time.sleep(sleep_time)
     active_letters.append(random_letter)
     return active_letters
+
+def letter_check(user_input):
+    active_add_letters()
+   # score=0
+    #fail=0
+    if user_input in active_letters:
+        score += 1
+    else:
+        fail += 1
+
+    print("score is {}".format(score))
+    print("{} failed attempts".format(fail))
+    
