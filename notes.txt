@@ -1,0 +1,5 @@
+Phase 00
+=========
+1. Get random letter
+2. Get user input
+3. Compare user input with random letter
