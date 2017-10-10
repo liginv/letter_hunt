@@ -7,3 +7,6 @@ htmlcov
 tr.py
 to-do.txt
 \#tr.py#
+\#*
+.#*
+.gitignore
