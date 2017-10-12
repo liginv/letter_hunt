@@ -2,14 +2,14 @@ import datetime
 import time
 import random
 import string
+strike_list = []
+strike = 0
 
 letters = list(string.ascii_lowercase)
 score = 0
 fail = 0
 active_letters = []
-life = 10
-sleep_time=2.0
-streak = 0
+sleep_time=2
 
 def random_choice():
     return random.choice(letters)
@@ -21,6 +21,26 @@ def active_add_letters():
     print(active_letters)
     return active_letters
 
+def count_strike(input):
+    global strike_list
+    global strike
+    global sleep_time
+    if len(strike_list) > 0:
+        if strike_list[-1] == input:
+            strike_list.append(input)
+        else:
+            strike_list = [input]
+        if len(strike_list) == 5:
+            if strike_list[0] == 1:
+                if strike > 6:
+                    pass
+                else:
+                    strike += 1
+                    sleep_time -= 0.2
+            strike_list = []
+    else:
+        strike_list = [input]
+
 def letter_check(user_input):
     global score
     global fail
@@ -30,59 +50,13 @@ def letter_check(user_input):
     if user_input in active_letters:
         active_letters.remove(user_input)
         score += 1
-    elif user_input == "":
-        pass
-        
+        count_strike(1)
     else:
         fail += 1
+        count_strike(0)
 
     print("score is {}".format(score))
     print("{} failed attempts".format(fail))
     print(active_letters)
-
-def main():
-    while life > 0:
-        active_add_letters()
-        try:
-            input1 = input
-            letter_check(input1)
-
-        except:
-            pass
-        
-    
-# def streak_time():
-#     global sleep_time
-#     tmp = streak
-#     if tmp not == streak
-#     streak_list = { 0 : 2.0
-#                     1 : 1.8
-#                     2 : 1.6
-#                     3 : 1.4000000000000001
-#                     4 : 1.2000000000000002
-#                     5 : 1.0000000000000002
-#                     6 : 0.8000000000000003
-#                     7 : 0.6000000000000003
-#                     }
-
-                    # if streak == 1:
-    #     sleep_time -= 0.2
-    # if streak == 2:
-    #     sleep_time -= 0.2
-    # if streak == 3:
-    #     sleep_time -= 0.2
-    # if streak == 4:
-    #     sleep_time -= 0.2
-    # if streak == 5:
-    #     sleep_time -= 0.2
-    # if streak == 6:
-    #     sleep_time -= 0.2
-    # if streak == 7:
-    #     sleep_time -= 0.2
-    # if streak == 8:
-    #     sleep_time -= 0.2
-    # if streak == 9:
-    #     sleep_time -= 0.2
-    # if streak == 10:
-    #     sleep_time -= 0.2
-    # print(sleep_time)
+    print("{} strike".format(strike))
+    print(sleep_time)
