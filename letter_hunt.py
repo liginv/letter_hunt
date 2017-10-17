@@ -10,7 +10,7 @@ score = 0
 fail = 0
 active_letters = []
 sleep_time = 2
-initial_size = 10
+initial_size = 5
 
 
 def random_choice():
@@ -27,6 +27,24 @@ def active_add_letters():
         return active_letters
     else:
         return active_letters
+
+
+def letter_position():
+    for i in range(len(active_letters)):
+        letter = random.choice(range(1, len(active_letters) + 1))
+        # time.sleep(sleep_time)
+        return letter
+
+
+def letter_mapping():
+    working_letters = list(enumerate(active_add_letters(), 1))
+    return dict(working_letters)
+
+
+def show_letter():
+    letter = letter_mapping()
+    time.sleep(sleep_time)
+    return letter[letter_position()]
 
 
 def count_strike(input):
