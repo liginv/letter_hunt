@@ -8,8 +8,9 @@ strike = 0
 letters = (string.ascii_lowercase)
 score = 0
 fail = 0
+life = 3
 active_letters = []
-sleep_time = 2
+sleep_time = 4
 initial_size = 5
 
 
@@ -82,8 +83,9 @@ def letter_check(user_input):
         fail += 1
         count_strike(0)
 
-    print("score is {}".format(score))
-    print("{} failed attempts".format(fail))
-    print(active_letters)
-    print("{} strike".format(strike))
-    print(sleep_time)
+    # print("score is: {}".format(score))
+    # print("{} failed attempts".format(fail))
+    # print(active_letters)
+    # print("{} strike".format(strike))
+    # print(sleep_time)
+    # return score
