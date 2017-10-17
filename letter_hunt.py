@@ -5,11 +5,12 @@ import string
 strike_list = []
 strike = 0
 
-letters = list(string.ascii_lowercase)
+letters = (string.ascii_lowercase)
 score = 0
 fail = 0
 active_letters = []
 sleep_time = 2
+initial_size = 10
 
 
 def random_choice():
@@ -17,11 +18,14 @@ def random_choice():
 
 
 def active_add_letters():
-    random_letter = random_choice()
-    time.sleep(sleep_time)
-    active_letters.append(random_letter)
-    print(active_letters)
-    return active_letters
+    if len(active_letters) < 5:
+        for i in range(0, initial_size):
+            random_letter = random_choice()
+            # time.sleep(sleep_time)
+            active_letters.extend(random_letter)
+        return active_letters
+    else:
+        return active_letters
 
 
 def count_strike(input):
