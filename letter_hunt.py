@@ -18,8 +18,9 @@ def random_choice():
 
 
 def active_add_letters():
-    if len(active_letters) < 5:
-        for i in range(0, initial_size):
+    if len(active_letters) < initial_size:
+        empty_slots = initial_size - len(active_letters)
+        for i in range(0, empty_slots):
             random_letter = random_choice()
             # time.sleep(sleep_time)
             active_letters.extend(random_letter)
