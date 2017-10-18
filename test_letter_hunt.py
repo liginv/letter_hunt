@@ -138,3 +138,32 @@ def test_streak_and_sleep_time():
     assert letter_hunt.score == 14
     assert letter_hunt.strike == 2
     assert letter_hunt.sleep_time == 1.6
+
+
+def test_letter_mappping():
+    letter_hunt.letters=["a","b","c","d","e","f"]
+    letter_hunt.active_letters=["a","b","c","d","e"]
+    letter_hunt.letter_position()
+    assert letter_hunt.letter_mapping() == {1:'a',2:'b',3:'c',4:'d',5:'e'}
+    letter_hunt.active_letters=["a","b","f","d","e"]
+    letter_hunt.letter_position()
+    assert letter_hunt.letter_mapping() == {1:'a',2:'b',3:'f',4:'d',5:'e'}
+
+
+def test_show_letter():
+    letter_hunt.letters=["a","b","c","d","e","f"]
+    letter_hunt.active_letters=["a","b","c","d","e"]
+    letter_hunt.letter_position()
+    letter_hunt.letter_mapping()
+    assert letter_hunt.show_letter() in letter_hunt.active_letters
+
+def test_letter_mapping2():
+    letter_hunt.active_letters=["a","b","c","d","e"]
+    letter_hunt.letter_position()
+    assert letter_hunt.letter_mapping() == {1:'a',2:'b',3:'c',4:'d',5:'e'}
+    letter_hunt.letter_check("c")
+    letter_hunt.letters = ["x"]
+    letter_hunt.active_add_letters()   
+    assert letter_hunt.active_letters == ["a","b","d","e","x"]
+    letter_hunt.letter_position()
+    assert letter_hunt.letter_mapping() == {1:'a',2:'b',3:'d',4:'e',5:'x'}
