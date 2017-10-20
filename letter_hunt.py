@@ -11,7 +11,7 @@ fail = 0
 life = 3
 active_letters = []
 sleep_time = 4
-initial_size = 5
+initial_size = 10
 
 
 def random_choice():
