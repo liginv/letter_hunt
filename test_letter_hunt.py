@@ -141,7 +141,9 @@ def test_streak_and_sleep_time():
 
 
 def test_letter_mappping():
+    letter_hunt.initial_size=5
     letter_hunt.letters=["a","b","c","d","e","f"]
+    letter_hunt.active_add_letters()
     letter_hunt.active_letters=["a","b","c","d","e"]
     letter_hunt.letter_position()
     assert letter_hunt.letter_mapping() == {1:'a',2:'b',3:'c',4:'d',5:'e'}
@@ -158,6 +160,8 @@ def test_show_letter():
     assert letter_hunt.show_letter() in letter_hunt.active_letters
 
 def test_letter_mapping2():
+    letter_hunt.initial_size=5
+    letter_hunt.active_add_letters()
     letter_hunt.active_letters=["a","b","c","d","e"]
     letter_hunt.letter_position()
     assert letter_hunt.letter_mapping() == {1:'a',2:'b',3:'c',4:'d',5:'e'}
