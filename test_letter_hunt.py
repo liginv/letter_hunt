@@ -174,16 +174,16 @@ def test_letter_mapping2():
 
 def test_life_true():
     life_remains=2
-  #  a=True
-    letter_hunt.life(True)
+    letter_hunt.life(a)
+    a = True
     assert life_remains == 1
     assert letter_hunt.life(a) == False
- #   b=False
-    letter_hunt.life(False)
+    letter_hunt.life(b)
+    b = False
     assert life_remains == 1
     assert letter_hunt.life(a) == False
-#    c=False
-    letter_hunt.life(True)
+    letter_hunt.life(c)
+    c = True
     assert life_remains == 0
     assert letter_hunt.life(a) == True
     
