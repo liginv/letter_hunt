@@ -167,3 +167,20 @@ def test_letter_mapping2():
     assert letter_hunt.active_letters == ["a","b","d","e","x"]
     letter_hunt.letter_position()
     assert letter_hunt.letter_mapping() == {1:'a',2:'b',3:'d',4:'e',5:'x'}
+
+def test_life_true():
+    life_remains=2
+  #  a=True
+    letter_hunt.life(True)
+    assert life_remains == 1
+    assert letter_hunt.life(a) == False
+ #   b=False
+    letter_hunt.life(False)
+    assert life_remains == 1
+    assert letter_hunt.life(a) == False
+#    c=False
+    letter_hunt.life(True)
+    assert life_remains == 0
+    assert letter_hunt.life(a) == True
+    
+    
